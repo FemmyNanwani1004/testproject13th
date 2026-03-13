@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accounting Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Accounting Dashboard</p>
+          <h1 id="hero-title">Northstar Studio</h1>
+          <p id="hero-subtitle" class="hero-subtitle">
+            A quick view of cash position, invoice collections, and operating
+            spend.
+          </p>
+          <div class="hero-tags">
+            <span id="hero-period" class="tag">March 2026 Close</span>
+            <span id="hero-updated" class="tag">Updated March 13, 2026</span>
+            <span class="tag">USD reporting</span>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="balance-card">
+            <div>
+              <p class="card-label">Closing balance</p>
+              <h2 id="closing-balance">$128,450</h2>
+              <p id="balance-delta" class="delta positive">
+                +$14,200 vs previous month
+              </p>
+            </div>
+
+            <svg
+              id="balance-sparkline"
+              viewBox="0 0 220 84"
+              aria-hidden="true"
+            ></svg>
+          </div>
+
+          <div class="mini-ledger">
+            <article>
+              <span>Tax reserve</span>
+              <strong id="tax-reserve">$18,400</strong>
+            </article>
+            <article>
+              <span>Pending payouts</span>
+              <strong id="pending-payouts">$6,980</strong>
+            </article>
+            <article>
+              <span>Avg. collection</span>
+              <strong id="collection-days">23 days</strong>
+            </article>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="panel metrics-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Snapshot</p>
+              <h2>Key Figures</h2>
+            </div>
+            <p class="panel-note">Current close versus the prior month.</p>
+          </div>
+          <div id="metrics-grid" class="metrics-grid"></div>
+        </section>
+
+        <section class="panel cashflow-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Movement</p>
+              <h2>Cash Flow Overview</h2>
+            </div>
+          </div>
+
+          <div id="cashflow-chart" class="cashflow-chart"></div>
+
+          <div class="chart-legend">
+            <span><i class="legend-swatch income"></i>Inflow</span>
+            <span><i class="legend-swatch expense"></i>Outflow</span>
+          </div>
+
+          <p id="cashflow-note" class="panel-note"></p>
+        </section>
+
+        <section class="panel expense-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Spend Mix</p>
+              <h2>Expense Breakdown</h2>
+            </div>
+            <p class="panel-note">Largest cost centers this month.</p>
+          </div>
+
+          <div class="ring-layout">
+            <div id="expense-ring" class="expense-ring">
+              <div class="ring-center">
+                <span>Total spend</span>
+                <strong id="expense-total">$48,750</strong>
+              </div>
+            </div>
+            <ul id="expense-list" class="expense-list"></ul>
+          </div>
+        </section>
+
+        <section class="panel transactions-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Ledger</p>
+              <h2>Recent Transactions</h2>
+            </div>
+            <p id="transaction-summary" class="panel-note"></p>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="transactions-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="sidebar-panel">
+          <section class="stack-card">
+            <div class="stack-heading">
+              <div>
+                <p class="panel-kicker">Collections</p>
+                <h2>Open Invoices</h2>
+              </div>
+              <p id="invoice-summary" class="panel-note"></p>
+            </div>
+            <ul id="invoice-list" class="stack-list"></ul>
+          </section>
+
+          <section class="stack-card">
+            <div class="stack-heading">
+              <div>
+                <p class="panel-kicker">Control</p>
+                <h2>Budget Health</h2>
+              </div>
+              <p class="panel-note">Used versus allocated this month.</p>
+            </div>
+            <ul id="budget-list" class="budget-list"></ul>
+          </section>
+
+          <section class="stack-card">
+            <div class="stack-heading">
+              <div>
+                <p class="panel-kicker">Calendar</p>
+                <h2>Key Deadlines</h2>
+              </div>
+              <p class="panel-note">Upcoming work for the finance team.</p>
+            </div>
+            <ul id="deadline-list" class="stack-list"></ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
